@@ -737,7 +737,7 @@ function Map:draw(tx, ty, sx, sy)
 	lg.origin()
 	lg.scale(sx or 1, sy or sx or 1)
 
-	lg.setCanvas(current_canvas)
+	lg.setCanvas( {current_canvas, stencil=true} )
 	lg.draw(self.canvas)
 
 	lg.pop()
