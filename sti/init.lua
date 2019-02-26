@@ -550,30 +550,32 @@ function Map:setObjectSpriteBatches(layer)
 			local batch = batches[tileset]
 			local tileX = object.x + tile.offset.x
 			local tileY = object.y + tile.offset.y - tile.height * sy
-			local tileR = math.rad(object.rotation)
+
+			-- added the * -1 because it seems to be rotating the opposite way than I'd expect. Will see if this is nessessary once we fix the main issue.
+			local tileR = math.rad(object.rotation) * -1
 			local oy    = 0
 
-            -- DAVBO ROTATION CODE!!
-            -- This would work if the issue was rotating around the centre instead of the other corner but it's not rotating around the centre. it's rotating around the other corner.
-            -- So... I need to find where the rotation happens. So I can change it. It would be possible to transform stuff around here to compensate for the mistake but that'd be horrid.
+			-- DAVBO ROTATION CODE!!
+			-- This would work if the issue was rotating around the centre instead of the other corner but it's not rotating around the centre. it's rotating around the other corner.
+			-- So... I need to find where the rotation happens. So I can change it. It would be possible to transform stuff around here to compensate for the mistake but that'd be horrid.
 
-            -- local centre = Vector(tileX, tileY)
+			-- local centre = Vector(tileX, tileY)
 
-            -- -- get the rotation point (top left corner)
-            -- local rotationPoint = Vector(centre.x - object.width/2, centre.y - object.height/2)
+			-- -- get the rotation point (top left corner)
+			-- local rotationPoint = Vector(centre.x - object.width/2, centre.y - object.height/2)
 
-            -- -- move to be around rotation point
-            -- centre = centre - rotationPoint
+			-- -- move to be around rotation point
+			-- centre = centre - rotationPoint
 
-            -- -- rotate
-            -- local new = centre:rotated(tileR)
+			-- -- rotate
+			-- local new = centre:rotated(tileR)
 
-            -- -- move point back
-            -- centre = new + rotationPoint
+			-- -- move point back
+			-- centre = new + rotationPoint
 
-            -- tileX, tileY = centre.x, centre.y
-            
-            -- END DAVMISSION
+			-- tileX, tileY = centre.x, centre.y
+			
+			-- END DAVMISSION
 
 
 			-- Compensation for scale/rotation shift
