@@ -520,6 +520,8 @@ function Map:setSpriteBatches(layer)
 	end
 end
 
+local Vector = require "hump.vector"
+
 --- Batch Tiles in Object Layer for improved draw speed
 -- @param layer The Object Layer
 function Map:setObjectSpriteBatches(layer)
@@ -550,6 +552,29 @@ function Map:setObjectSpriteBatches(layer)
 			local tileY = object.y + tile.offset.y - tile.height * sy
 			local tileR = math.rad(object.rotation)
 			local oy    = 0
+
+            -- DAVBO ROTATION CODE!!
+            -- This would work if the issue was rotating around the centre instead of the other corner but it's not rotating around the centre. it's rotating around the other corner.
+            -- So... I need to find where the rotation happens. So I can change it. It would be possible to transform stuff around here to compensate for the mistake but that'd be horrid.
+
+            -- local centre = Vector(tileX, tileY)
+
+            -- -- get the rotation point (top left corner)
+            -- local rotationPoint = Vector(centre.x - object.width/2, centre.y - object.height/2)
+
+            -- -- move to be around rotation point
+            -- centre = centre - rotationPoint
+
+            -- -- rotate
+            -- local new = centre:rotated(tileR)
+
+            -- -- move point back
+            -- centre = new + rotationPoint
+
+            -- tileX, tileY = centre.x, centre.y
+            
+            -- END DAVMISSION
+
 
 			-- Compensation for scale/rotation shift
 			if tile.sx == 1 and tile.sy == 1 then
