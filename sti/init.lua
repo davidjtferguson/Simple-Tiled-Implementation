@@ -552,13 +552,14 @@ function Map:setObjectSpriteBatches(layer)
 			local tileR = math.rad(object.rotation)
 			local oy    = 0
 
+            print(tile.height * sy, object.height)
+
 			-- Compensation for scale/rotation shift
 			if tile.sx == 1 and tile.sy == 1 then
 				if tileR ~= 0 then
 					tileY = tileY + object.height
                     oy    = object.height
-                    
-                    
+
 					-- tileY = tileY + tileH
 					-- oy    = tileH
 				end
@@ -567,10 +568,12 @@ function Map:setObjectSpriteBatches(layer)
 				if tile.sy < 0 then tileY = tileY + object.height end
 				if tileR   > 0 then tileX = tileX + object.width end
                 if tileR   < 0 then tileY = tileY + object.height end
-                
-                
+
+                -- -- I think this is done because a scale of < 0 would mean flipped, so need to move to that position?
 				-- if tile.sx < 0 then tileX = tileX + tileW end
-				-- if tile.sy < 0 then tileY = tileY + tileH end
+                -- if tile.sy < 0 then tileY = tileY + tileH end
+
+                -- -- Why is this done?
 				-- if tileR   > 0 then tileX = tileX + tileW end
 				-- if tileR   < 0 then tileY = tileY + tileH end
 			end
