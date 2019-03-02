@@ -1,14 +1,15 @@
 return {
-  version = "1.1",
+  version = "1.2",
   luaversion = "5.1",
-  tiledversion = "0.17.2",
+  tiledversion = "1.2.1",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 32,
   height = 32,
   tilewidth = 32,
   tileheight = 32,
-  nextobjectid = 10,
+  nextlayerid = 4,
+  nextobjectid = 15,
   properties = {},
   tilesets = {
     {
@@ -18,6 +19,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 32,
       image = "ash_uvgrid01.jpg",
       imagewidth = 1024,
       imageheight = 1024,
@@ -25,15 +27,47 @@ return {
         x = 0,
         y = 0
       },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
       properties = {},
       terrains = {},
       tilecount = 1024,
+      tiles = {}
+    },
+    {
+      name = "tiled-02",
+      firstgid = 1025,
+      filename = "tiled-02.tsx",
+      tilewidth = 640,
+      tileheight = 640,
+      spacing = 0,
+      margin = 0,
+      columns = 1,
+      image = "../tutorials/img/tiled-02.png",
+      imagewidth = 640,
+      imageheight = 640,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 640,
+        height = 640
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 1,
       tiles = {}
     }
   },
   layers = {
     {
       type = "tilelayer",
+      id = 1,
       name = "Grid",
       x = 0,
       y = 0,
@@ -82,6 +116,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 2,
       name = "Shapes",
       visible = true,
       opacity = 1,
@@ -208,11 +243,68 @@ return {
             { x = 304.938, y = 205.271 }
           },
           properties = {}
+        },
+        {
+          id = 10,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 96,
+          y = 405,
+          width = 320,
+          height = 320,
+          rotation = -18.0658,
+          gid = 1025,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 12,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 96,
+          y = 405,
+          width = 320,
+          height = 320,
+          rotation = 0,
+          gid = 1025,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 13,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 736,
+          y = 940,
+          width = 640,
+          height = 640,
+          rotation = -18.0658,
+          gid = 1025,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 14,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 736,
+          y = 940,
+          width = 640,
+          height = 640,
+          rotation = 0,
+          gid = 1025,
+          visible = true,
+          properties = {}
         }
       }
     },
     {
       type = "imagelayer",
+      id = 3,
       name = "Image Layer 1",
       visible = true,
       opacity = 1,
