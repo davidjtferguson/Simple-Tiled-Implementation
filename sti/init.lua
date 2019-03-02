@@ -547,17 +547,12 @@ function Map:setObjectSpriteBatches(layer)
 
 			local batch = batches[tileset]
 			local tileX = object.x + tile.offset.x
-			local tileY = object.y + tile.offset.y - tile.height * sy
+			local tileY = object.y + tile.offset.y
 			local tileR = math.rad(object.rotation)
-			local oy    = 0
+			local oy    = object.height / sy
 
 			-- Compensation for scale/rotation shift
-			if tile.sx == 1 and tile.sy == 1 then
-				if tileR ~= 0 then
-					tileY = tileY + object.height
-                    oy    = (object.height / sy)
-				end
-			else
+			if tile.sx ~= 1 or tile.sy ~= 1 then
 				if tile.sx < 0 then tileX = tileX + tileW end
 				if tile.sy < 0 then tileY = tileY + tileH end
 				if tileR   > 0 then tileX = tileX + tileW end
