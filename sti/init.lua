@@ -554,8 +554,8 @@ function Map:setObjectSpriteBatches(layer)
 			-- Compensation for scale/rotation shift
 			if tile.sx == 1 and tile.sy == 1 then
 				if tileR ~= 0 then
-					tileY = tileY + tileH
-					oy    = tileH
+					tileY = tileY + object.height
+                    oy    = (object.height / sy)
 				end
 			else
 				if tile.sx < 0 then tileX = tileX + tileW end
