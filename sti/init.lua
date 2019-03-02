@@ -552,13 +552,11 @@ function Map:setObjectSpriteBatches(layer)
 			local tileR = math.rad(object.rotation)
 			local oy    = 0
 
-            print(tile.height * sy, object.height)
-
 			-- Compensation for scale/rotation shift
 			if tile.sx == 1 and tile.sy == 1 then
 				if tileR ~= 0 then
-					tileY = tileY + object.height
-                    oy    = object.height
+					tileY = tileY + (object.height)
+                    oy    = (object.height / sy)
 
 					-- tileY = tileY + tileH
 					-- oy    = tileH

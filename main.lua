@@ -6,7 +6,7 @@ local tx, ty
 local points
 
 function love.load()
-    love.window.setMode(1000, 600, {fullscreen = true})
+    love.window.setMode(1000, 600, {fullscreen = false})
 	-- Load map
 	map = sti("tests/ortho.lua", { "box2d" })
 	--map = sti("tests/iso.lua",   { "box2d" })
