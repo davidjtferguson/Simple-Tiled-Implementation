@@ -709,7 +709,7 @@ end
 -- @param sy Scale on Y
 function Map:draw(tx, ty, sx, sy)
 	local current_canvas = lg.getCanvas()
-	lg.setCanvas(self.canvas)
+	lg.setCanvas( {self.canvas, stencil=true} )
 	lg.clear()
 
 	-- Scale map to 1.0 to draw onto canvas, this fixes tearing issues
@@ -732,7 +732,7 @@ function Map:draw(tx, ty, sx, sy)
 	lg.origin()
 	lg.scale(sx or 1, sy or sx or 1)
 
-	lg.setCanvas( {current_canvas, stencil=true} )
+	lg.setCanvas(current_canvas)
 	lg.draw(self.canvas)
 
 	lg.pop()
